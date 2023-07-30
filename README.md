@@ -329,8 +329,6 @@ getRandomNumbers(){
 
 
 
-}
-
 Ouput  value  0-10
 
 ```
