@@ -127,7 +127,8 @@ const obj = {
     
     removeItem(arr,itemName){
         const idx = arr.indexOf(itemName);
-        arr.pop();
+        const returnValue = arr.pop(idx);
+        console.log("return value = ",returnValue);
     },
     
     cartSize(arr){
