@@ -112,14 +112,15 @@ console.log(findArea(5, 6, 7));
 
 function capitalize(str){
     const words = str.split(" ");
-    const capitalizedWords = [];
+    let capitalizedWords = "";
     console.log(words);
     for(const word of words){
         const capitalizedWord = word[0].toUpperCase() + word.slice(1);
-        capitalizedWords.push(capitalizedWord);
+        // capitalizedWords.push(capitalizedWord);  // if it were array.
+        capitalizedWords += `${capitalizedWord} `;
     }
     console.log(capitalizedWords);
-    console.log(capitalizedWords.join(" "));
+    // console.log(capitalizedWords.join(" "));
 }
 const input = "we are the champions";
 capitalize(input);
