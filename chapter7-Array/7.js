@@ -106,21 +106,23 @@ console.log("7.11", nums3.sort());
 
 // 7.12: Guess the Output and Explain Why?
 let arr5 = [1, 2, 3, 4];
-let result = arr.splice(1, 2).pop();
-console.log("7.12", result);    // 4
-// 
+let result = arr5.splice(1, 2).pop();
+console.log("7.12", result);    // 3, arr5.splice(1, 2) will give [2, 3] then pop will
+// give 3;
 
 // 7.13: You have given an array of numbers nums You have to 
 // check if all elements of the array > 15 using built-in array 
 // method. return true or false
 let nums4 = [16, 17, 18, 28, 22];
 
+console.log("7.13",nums4.every((num) => num > 15)); // true
+
 // More Practice Questions (Arrays)
 
 // Question 1: Guess the Output And explain Why?
 let strArray = [1, 2, 3, 4, 5];
-let result1 = strArray.reverse();
-console.log(result1 == strArray);
+let result1 = strArray.reverse(); // result1 = [5, 4, 3, 2, 1] & strArray = [5, 4, 3, 2, 1];
+console.log("Q1",result1 == strArray); // true, because array.reverse() is mutable mtd.
 
 // Question 2: You have given two arrays below as an example. 
 // Your task is to combine them into one By using array method
@@ -128,17 +130,26 @@ console.log(result1 == strArray);
 let arr6 = [1, 2, 3, 4, 5];
 let arr7 = [6, 7, 8, 9, 10];
 // ouput[(6, 7, 8, 9, 10, 1, 2, 3, 4, 5)];
+console.log("Q2-1",arr7.concat(arr6));
+console.log("Q2-2",[...arr7,...arr6]);
 
 // Question 3: You have given an array of letters below. 
 // Convert that array into string of letters Without Space
 // input;
 let arr8 = ['a', 'b', 'h', 'i', 's', 'h', 'e', 'k'];
 // output; ('abhishek');
+console.log("Q3",arr8.join(""));
 
 // Question 4: Guess the Output and explain why?
 let arr9 = [11, 62, 1, 27, 8, 5];
-let sorted = arr.sort();
-console.log(sorted);
+let sorted = arr9.sort();
+console.log("Q4-1",sorted); // unexpected behaviour
+let sorted2 = arr9.sort((a, b) => {
+  if(a < b) return -1;
+  else if (a > b) return 1;
+  else return 0;
+});
+console.log("Q4-2",sorted2); // now sorted
 
 // Question 5: Create a function 'calcAverageHumanAge', which 
 // accepts an arrays of dog's ages ('ages'), and does the 
@@ -149,12 +160,27 @@ console.log(sorted);
 // Test  data
 let  arr10 = [12,2,5,12,8,13,9];
 
+// function calcaverageHumanAge(ages){
+//   if(dogAge <= 2){
+//     humanAge = 16 + dogAge;
+//   }
+// }
+console.log("Q5", arr10.map((el) => {
+  if(el <= 2){
+    return 2 * el;
+  }else{
+    return 16 + el;
+  }
+}))
+
 // Question 6: Guess the Output and Explain Why?
 let arr11 = [1, 2, 3, 4, 5, 6, 7, 8];
 let elem = arr.at(-1);
-console.log(elem);
+console.log("Q6",elem); // 8, indexing starts from last if value is -ve.
 
 // Question 7: Guess the Output and Explain why?
 let arr12 = [1, 2, 3, 4, 5, 6, 7, 8];
-let result2 = arr.slice(2, 5).splice(0, 2, 21).pop();
-console.log(result2, arr12);
+let result2 = arr12.slice(2, 5).splice(0, 2, 21).pop();
+console.log("Q7",result2, arr12); // result2 = 4, arr12 = [1, 2, 3, 4, 5, 6, 7, 8];
+// arr12.slice(2, 5) = [3, 4, 5].splice(0, 2, 21) = [21, 5] and return value = [3, 4],
+// [3, 4].pop() = 4;
