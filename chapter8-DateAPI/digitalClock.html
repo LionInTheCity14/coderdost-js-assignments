@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        *{
+            margin: 0;
+            background-color: rgb(0, 203, 253);
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: inline;
+            background-color: rgb(0, 203, 253);
+            width: 50%;
+            height: 50%;
+            opacity: .5;
+            /* border: 1px solid black; */
+        }
+
+        .hourBox, .minBox, .secBox{
+            /* border: 2px solid red; */
+            padding: 5px;
+            font-size: 23px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="hourBox">Hour</span>
+
+        <span class="minBox">Minute</span>
+
+        <span class="secBox">Second</span>
+    </div>
+    <script>
+        const hourBox = document.querySelector(".hourBox");
+        const minBox = document.querySelector(".minBox");
+        const secBox = document.querySelector(".secBox");
+
+        const time = () => {
+            const currDate = new Date();
+            // console.log(currDate);
+
+            const currHour = currDate.getHours();
+            const currMin = currDate.getMinutes();
+            const currSec = currDate.getSeconds();
+
+            hourBox.textContent = currHour;
+            minBox.textContent = currMin;
+            secBox.textContent = currSec;
+        }
+
+        setInterval(time, 1000);
+    </script>
+</body>
+</html>
