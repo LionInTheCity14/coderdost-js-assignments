@@ -1,4 +1,5 @@
-// singleton: objects created form constructors are one of there own type
+// singleton: objects created form constructors are one of 
+// there own type.
 // Object.create()
 
 // object literals

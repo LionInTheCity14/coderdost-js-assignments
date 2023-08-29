@@ -15,7 +15,7 @@ const regularUser = {
     }
 }
 
-console.log(regularUser.fullname?.userfullname.firstname);
+// console.log(regularUser.fullname?.userfullname?.firstname);
 
 const obj1 = {1:"a", 2: "b", 3: "c"};
 const obj2 = {3: "d", 4: "e", 5: "f", 5: "g"};
@@ -34,7 +34,7 @@ const arrOfKeys = Object.keys(tinderUser);
 const arrOfValues = Object.values(tinderUser);
 const arrOfEntries = Object.entries(tinderUser);
 
-console.table([arrOfKeys, arrOfValues, arrOfEntries]);
+// console.table([arrOfKeys, arrOfValues, arrOfEntries]);
 
 // console.log(tinderUser.hasOwnProperty("isLoggedIn")); // true
 
@@ -56,6 +56,7 @@ const users = [
     },
 ];
 
+// ################ Object Destructoring #####################
 
 const course = {
     coursename: "js in hindi",
@@ -63,4 +64,31 @@ const course = {
     courseInstructor: "hitesh",
 }
 
+// **** Object destructuring **** (important)
 
+// course.courseInstructor 
+
+const {courseInstructor} = course;
+const {courseInstructor: instructor} = course;  // or (give other name if you want), prefered
+
+console.log(instructor, courseInstructor === instructor);
+
+// react basic destructuring
+// const navbar = ({company}) => {
+// }
+// navbar(company = "varun");
+
+
+// JSON FORMAT
+
+// {
+//     "name": "varun",
+//     "coursename": "js in hindi",
+//     "price": "free",
+// }
+
+// [
+//     {},
+//     {},
+//     {},
+// ]
