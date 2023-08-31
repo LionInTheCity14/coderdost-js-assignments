@@ -47,7 +47,17 @@ const user = {
 }
 
 function handleObject(obj){
-    console.log(`username is ${obj.username} and id is ${obj.id}`);
+    console.log(`username is ${obj?.username} and id is ${obj?.id}`);
 }
 
-handleObject(user);
+// handleObject(user);
+handleObject({username: "sahil", id: "2"});
+
+const myNewArray = [200, 400, 100, 600];
+
+function return2ndValue(arr){
+    return arr[1];
+}
+
+// console.log(return2ndValue(myNewArray));
+console.log(return2ndValue([2, 3, 5]));
