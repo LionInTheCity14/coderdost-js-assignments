@@ -23,7 +23,7 @@ function global(){
     console.log(this);
 }
 
-// chai1();
+chai1();
 function chai1(){
     let username = "varun";
     console.log("function declearation username ",this.username);
@@ -35,7 +35,7 @@ const chai2 = function(){
     console.log("function expression username", this.username);
     console.log(this);
 }
-// chai2();
+chai2();
 
 const chai3 = () => {
     let username = "varun";
