@@ -3,21 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>DoM Learning</title>
+    <style>
+        body{
+            color: white;
+            background-color: rgba(0, 0, 0, 0.76);
+        }
+    </style>
 </head>
 <body>
     <div class="bg-black">
-        <h1 class="heading">
+        <h1 id="title" class="heading">
             Dom learning on Chai aur code
+            <span style="display: none;">hidden text</span>
         </h1>
         <p>
             Loremji ijieqf oidjfk kdjaf
         </p>
+
+        <!-- ul>li*3 -->
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
     </div>
     <script>
         console.log(window);
         console.dir(document);
         console.log(document)
         console.log(document.links);
+
+        // difference between innerText, textContent, innerHTML
+
+        const titleEl = document.querySelector("#title");
+
+        // show only visible text
+        console.log(titleEl.innerText); 
+
+        // show all the text including hidden, spaces and line breaks.
+        console.log(titleEl.textContent);  
+
+        // show all the content including all the visible and hidden text, spaces, line breaks and all the html tags.
+        console.log(titleEl.innerHTML); 
+
+        const ul = document.querySelector('ul');
+        const firstLi = ul.querySelector("li");
+        firstLi.style.backgroundColor = "orange";
+
+        const liList = ul.querySelectorAll("li");
+        // console.log(liList);
+        // liList.style.backgroundColor = "green"; // can't do this on nodeList
+        // liList[1].style.backgroundColor = "white";
+        // liList[1].style.color = "darkblue";
+        // liList[2].style.backgroundColor = "green";
+
+        liList.forEach((liEl) => liEl.style.backgroundColor = `rgb(${Math.floor(Math.random()*256 + 1)}, ${Math.floor(Math.random()*256 + 1)}, ${Math.floor(Math.random()*256 + 1)})`);
+
+        setInterval(() => {
+            liList.forEach((liEl) => liEl.style.backgroundColor = `rgb(${Math.floor(Math.random()*256 + 1)}, ${Math.floor(Math.random()*256 + 1)}, ${Math.floor(Math.random()*256 + 1)})`);
+        }, 1500);
+
     </script>
 </body>
 </html>
