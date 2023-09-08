@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 Chai aur code | DOM</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    <script>
+        function addLanguage(langName){
+            const parentEl = document.querySelector(".language");
+            const childEl = document.createElement("li");
+            childEl.innerHTML = `${langName}`;  // not optimised
+            parentEl.appendChild(childEl);
+        }
+        addLanguage("Java");
+
+        // optimised function
+        function addOptiLanguage(langName){
+            const parentEl = document.querySelector(".language");
+            const childEl = document.createElement("li");
+            childEl.appendChild(document.createTextNode(`${langName}`));
+            document.querySelector(".language").appendChild(childEl);
+        }
+        addOptiLanguage("goLang");
+        addOptiLanguage("rust");
+        
+        // Edit
+        function replace1(whatTo, from){
+            const nthChild = document.querySelector(whatTo);
+            const newLi = document.createElement(from);
+            newLi.textContent = "Python";
+            nthChild.replaceWith(newLi);
+        };
+        replace1("li:nth-child(2)", "li");
+
+        // Edit
+       function replace2(whatTo, html){
+        const firstLang = document.querySelector(whatTo);
+        firstLang.outerHTML = html;
+       }
+       replace2("li:first-child", "<li>TypeScript</li>");
+
+        // remove
+        function remove(whatTo){
+        const lastLang = document.querySelector(whatTo);
+        lastLang.remove();
+        }
+        remove("li:last-child"); // rust removed
+    </script>
+</body>
+</html>
