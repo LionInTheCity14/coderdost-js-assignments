@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" target="_blank" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // types, timestamp, preventDefault, target
+    // toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altKey, ctrlKey, shiftKEy, keyCode
+
+    // document.querySelector("#photoshop").addEventListener("click", (evt)=>{
+    //     console.log(evt);
+    // }, false);
+
+    // // event propogation
+    // document.querySelector("#images").addEventListener("click", (evt) => {
+    //     console.log("clicked inside the ul");
+    // }, false);  // parent element false means ->event propogation mode (bottom to top);
+
+    // document.querySelector("body").addEventListener("click", (evt) => {
+    //     console.log("body clicked");
+    // }, true);   // parent true means -> event captureing mode (top to bottom).
+
+    // document.querySelector("#owl").addEventListener("click", (evt)=> {
+    //     evt.stopPropagation(); // stop bubbling of event 
+    //     console.log("owl clicked");
+    // }, false);
+
+    // // preventDefault();
+    // document.querySelector("#google").addEventListener("click", function(evt) {
+    //     evt.preventDefault(); // stops the default behaviour of html tags (can be used in forms, a tag, or any other tag)
+    //     evt.stopPropagation();  // stop event bubbling
+    //     console.log("google clicked");
+    // }, false);
+
+    // const images = document.querySelectorAll("#images");
+    // images.forEach((image) => {
+    //     image.addEventListener("click", (evt) => {
+    //         console.log(evt.target.tagName);
+    //         if(evt.target.tagName === "IMG" || evt.target.tagName === "A"){
+    //             console.log(evt.target.id);
+    //             console.log(evt.target);// image
+    //             console.log(evt.target.parentNode) // whole li tag
+    //             let removeIt = evt.target.parentNode;
+    //             // removeIt.parentNode.removeChild(removeIt);
+    //             removeIt.remove();  // or (new)
+    //         }
+    //     }, false);
+    // });
+
+    // or 
+
+    document.querySelector("#images").addEventListener("click", (evt) => {
+        console.log(evt.target.tagName);
+        if(evt.target.tagName === "IMG" || evt.target.tagName === "A"){
+            console.log(`evt.target = ${evt.target}`);
+            console.log(`evt.target.tagName = ${evt.target.tagName}`);
+            console.log(`evt.target.id = ${evt.target.id}`);
+            console.log(`evt.target.parentNode = ${evt.target.parentNode}`);
+
+            const toRemove = evt.target.parentNode;
+            toRemove.remove();
+        }
+    }, false);
+</script>
+</html>
