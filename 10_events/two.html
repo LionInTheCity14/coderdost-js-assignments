@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | Async</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const sayVarun = () => {
+        console.log("varun");
+    }
+    const changeH1 = () => {
+        document.querySelector("h1").innerHTML = `Best JS Series`;
+    }
+    const stopChange = setTimeout(changeH1, 2000);
+    setTimeout(sayVarun, 2000);
+
+    document.querySelector("#stop").addEventListener("click", (evt) => {
+        clearTimeout(stopChange);
+        console.log("STOPPED");
+    });
+</script>
+</html>

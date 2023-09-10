@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | Async</title>
+</head>
+<body>
+    <h1>Chai aur JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const showTime = function(/* para */){
+        // console.log(para);
+        console.log(new Date().toLocaleTimeString());
+    };
+    
+    
+    // start 
+    document.querySelector("#start").addEventListener("click", (evt) => {
+        console.log("inside start")
+        const time = setInterval(showTime, 1000, /*"hi"*/);
+
+        // stop
+        document.querySelector("#stop").addEventListener("click", (evt) => {
+            console.log("inside stop");
+            clearInterval(time);
+        }, true)
+    });
+
+    //  now do projects on stack blitz
+
+</script>
+</html>
