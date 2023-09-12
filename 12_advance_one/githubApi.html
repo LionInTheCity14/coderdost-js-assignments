@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github API </title>
+</head>
+<body style="background-color: #212121; color: #ffffff;">
+    <h2>see console</h2>
+    <ul>
+        <li>0	UNSENT	Client has been created. open() not called yet.</li>
+        <li>1	OPENED	open() has been called.</li>
+        <li>2	HEADERS_RECEIVED	send() has been called, and headers and status are available.</li>
+        <li>3	LOADING	Downloading; responseText holds partial data.</li>
+        <li>4	DONE	The operation is complete.</li>
+    </ul>
+</body>
+<script>
+    const requestURL = "https://api.github.com/users/lionInTheCity14";
+    const xhr = new XMLHttpRequest();
+    console.log("UNSENT", xhr.readyState);    // first stage, should return code 0
+
+    xhr.open("GET", requestURL);
+    console.log("OPENDED", xhr.readyState);    // second stage, should return code 1
+
+    xhr.send();
+    console.log("SENT", xhr.readyState);
+
+    xhr.onprogress = () => {
+        console.log("LOADING", xhr.readyState) // readyState will be 3
+    }
+
+    xhr.onload = () => {
+        console.log("DONE", xhr.readyState); // readyState will be 4
+    }
+</script>
+</html>
