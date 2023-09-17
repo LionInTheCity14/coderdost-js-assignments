@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures, Lexical scoping and Chai</title>
+</head>
+<body style="background-color: #212121; color: white;"" >
+    <h1>Closures, Lexical scoping and Chai</h1>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+<script>
+    // Lexical Scoping
+    // case 1
+
+    function outer1(){
+        let username = "varun";
+    }
+    // console.log(username);   // Error
+
+    // case 2
+
+    function outer2(){
+        let username = "varun";
+        function inner2(){
+            let secret = "my123";
+            console.log(username);
+        }
+        inner2();
+        // console.log("secret", secret); // Error
+        // let username = "varun"; // Error
+    }
+    outer2();
+    // console.log("outer2", username); // Error
+
+
+    // Closure
+
+    // MDN
+    function makeFunc(){
+        const name = "Mozilla";
+        function displayName(){
+            console.log(name);
+        }
+        return displayName;
+    }
+    const myFunc = makeFunc(); // also the scope of outer scope 
+    myFunc();
+
+</script>
+<script>
+    // document.querySelector("#orange").addEventListener("click", (evt) => {
+    //     document.body.style.backgroundColor = `orange`;
+    // });
+    
+    // document.querySelector("#green").addEventListener("click", (evt) => {
+    //     document.body.style.backgroundColor = `green`;
+    // });
+
+    // Practical Example for closures
+    
+    function clickHandler(color){
+        return function(){
+            document.body.style.backgroundColor = `${color}`;
+        }
+    }
+
+    const btns = document.querySelectorAll("button");
+    btns.forEach((btn) => {
+        btn.addEventListener("click", (evt) => {
+            const color = evt.target.innerText.toLowerCase();
+            const changeColor = clickHandler(color);
+            changeColor();
+        });
+    });
+</script>
+</html>
